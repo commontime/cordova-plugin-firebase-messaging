@@ -54,3 +54,10 @@ module.exports = {
         });
     }
 };
+document.addEventListener("deviceready", function() {
+    window.FirebasePlugin = window.cordova.plugins.firebase.messaging;
+    
+    window.cordova.plugins.firebase.messaging.requestPermission().then(function() {
+        console.log("Push permission granted.");
+    });
+}, false);
